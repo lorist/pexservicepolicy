@@ -164,6 +164,23 @@ def edit(id):
     else:
         return 'Error loading #{id}'.format(id=id)
 
+@app.route('/delete/<int:id>', methods=['GET', 'POST'])
+def delete(id):
+    # qry = db.session.query(Vmrs).filter(
+    #             Vmrs.id==id)
+    vmr = Vmrs.query.filter_by(id=id).one()
+    # vmr = qry.first()
+    try:
+        db.session.delete(vmr)
+        db.session.commit()
+
+        flash("Successfully deleted VMR")
+        return redirect('/pagination')
+    except IntegrityError as e:
+        db.session.rollback()
+        return render_template("500.html", error = str(e))
+    return redirect('/pagination')
+ 
 @app.route('/pagination', methods=['GET', 'POST'])
 def test_pagination():
     # db.drop_all()
@@ -193,4 +210,4 @@ if __name__ == '__main__':
 
     app.logger.addHandler(logHandler)
     app.logger.info('Starting app') 
-    app.run(host="0.0.0.0")
+    app.run(host="0.0.0.0", debug=True)
