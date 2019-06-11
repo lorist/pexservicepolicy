@@ -24,9 +24,10 @@ If you want to populate the DB with some test data, uncomment:
     #     db.session.add(v)
     # db.session.commit()
 
-Thanks to https://bootstrap-flask.readthedocs.io
+Be sure to comment again after the DB is created or it will overwrite every time :)
 
 To Test with Pexip. I would use ngrok to present a public URL that you can point the conference nodes to.
 
 Create a policy profile in Pexip and point it to the ngrok URL for Service Configuration. The app will then receive policy requests.
 
+Thanks to https://bootstrap-flask.readthedocs.io
