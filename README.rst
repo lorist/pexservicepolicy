@@ -5,9 +5,12 @@ Type these commands in the terminal:
 
 .. code-block:: bash
 
-    $ git clone https://github.com/greyli/bootstrap-flask.git
-    $ cd bootstrap-flask/examples
+    $ git clone https://github.com/lorist/pexservicepolicy.git
+    $ cd pexservicepolicy
     $ pip install -r requirements.txt
-    $ flask run
+    $ python app.py
 
 Now go to http://localhost:5000.
+
+Thanks to https://bootstrap-flask.readthedocs.io
+
