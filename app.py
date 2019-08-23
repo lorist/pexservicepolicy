@@ -183,14 +183,14 @@ def delete(id):
  
 @app.route('/pagination', methods=['GET', 'POST'])
 def test_pagination():
-    # db.drop_all()
-    # db.create_all()
-    # for i in range(100):
-    #     v = Vmrs()
-    #     v.local_alias = "vmr" + str(i)
-    #     v.name = "VMR " + str(i)
-    #     db.session.add(v)
-    # db.session.commit()
+    db.drop_all()
+    db.create_all()
+    for i in range(100):
+        v = Vmrs()
+        v.local_alias = "vmr" + str(i)
+        v.name = "VMR " + str(i)
+        db.session.add(v)
+    db.session.commit()
 
     page = request.args.get('page', 1, type=int)
     pagination = Vmrs.query.paginate(page, per_page=10)
