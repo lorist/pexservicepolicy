@@ -32,4 +32,13 @@ To Test with Pexip. I would use ngrok to present a public URL that you can point
 
 Create a policy profile in Pexip and point it to the ngrok URL for Service Configuration. The app will then receive policy requests.
 
+Run in docker
+========================
+
+Build from source:
+
+.. code-block:: bash
+    docker build -t pexservicepolicy .
+    docker run -d -p 5000:5000 pexservicepolicy
+    
 Thanks to https://bootstrap-flask.readthedocs.io
